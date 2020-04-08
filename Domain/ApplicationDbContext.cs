@@ -5,9 +5,8 @@ namespace Domain
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using Domain.Entity.ProjectEntity;
-    using Domain.Entity.ProjectEntity.ProjrctEntityConfiguration;
 
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : DbContext
     {
         internal ApplicationDbContext(string nameOrConnectionString)
              : base(nameOrConnectionString = "DefaultConnection")

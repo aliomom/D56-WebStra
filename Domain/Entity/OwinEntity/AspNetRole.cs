@@ -8,19 +8,21 @@ namespace Domain
 
     public partial class AspNetRole
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetRole()
-        {
-            AspNetUsers = new HashSet<AspNetUser>();
-        }
 
-        public Guid Id { get; set; }
 
-        [Required]
-        [StringLength(256)]
+        private ICollection<AspNetUser> _users;
+
+        #region Scalar Properties
+        public Guid RoleId { get; set; }
         public string Name { get; set; }
+        #endregion
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+        #region Navigation Properties
+        public ICollection<AspNetUser> Users
+        {
+            get { return _users ?? (_users = new List<AspNetUser>()); }
+            set { _users = value; }
+        }
+        #endregion
     }
 }

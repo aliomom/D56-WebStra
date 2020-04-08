@@ -8,24 +8,17 @@ namespace Domain
 
     public partial class AspNetUser
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetUser()
-        {
-            AspNetUserClaims = new HashSet<AspNetUserClaim>();
-            AspNetUserLogins = new HashSet<AspNetUserLogin>();
-            AspNetRoles = new HashSet<AspNetRole>();
-        }
+
 
         public Guid Id { get; set; }
 
-        [StringLength(256)]
         public string Email { get; set; }
 
         public bool EmailConfirmed { get; set; }
 
-        public string PasswordHash { get; set; }
+        public virtual string PasswordHash { get; set; }
 
-        public string SecurityStamp { get; set; }
+        public virtual string SecurityStamp { get; set; }
 
         public string PhoneNumber { get; set; }
 
@@ -43,14 +36,33 @@ namespace Domain
         [StringLength(256)]
         public string UserName { get; set; }
         public string FullName { get; set; }
+        private ICollection<AspNetUserClaim> _claims;
+        private ICollection<AspNetUserLogin> _externalLogins;
+        private ICollection<AspNetRole> _roles;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual ICollection<AspNetUserClaim> Claims
+        {
+            get { return _claims ?? (_claims = new List<AspNetUserClaim>()); }
+            set { _claims = value; }
+        }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual ICollection<AspNetUserLogin> Logins
+        {
+            get
+            {
+                return _externalLogins ??
+                    (_externalLogins = new List<AspNetUserLogin>());
+            }
+            set { _externalLogins = value; }
+        }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+        public virtual ICollection<AspNetRole> Roles
+        {
+            get { return _roles ?? (_roles = new List<AspNetRole>()); }
+            set { _roles = value; }
+        }
+
     }
+
+ 
 }
