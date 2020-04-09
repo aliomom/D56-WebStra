@@ -54,7 +54,9 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Entity\Configuration\ClinicConfiguration.cs" />
     <Compile Include="Entity\Configuration\DirectOperatingPartConfiguration.cs" />
+    <Compile Include="Entity\Configuration\DirectOperatingPartName.cs" />
     <Compile Include="Entity\Configuration\HolydayConfiguration.cs" />
+    <Compile Include="Entity\Configuration\UndirectOperationConfiguration.cs" />
     <Compile Include="Entity\OwinEntity\AspNetRole.cs" />
     <Compile Include="Entity\OwinEntity\AspNetUser.cs" />
     <Compile Include="Entity\OwinEntity\AspNetUserClaim.cs" />

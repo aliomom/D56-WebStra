@@ -24,7 +24,7 @@ namespace Domain.Entity.ProjectEntity.Clinic.Equipment.DiagnosticEquipment.Part
         public int DepreciationPeriod { get; set; }//mounth 
         public int DepreciationOnOperatingTimes { get; set; }//onec
         private ICollection<UndirectOperation> _changeablespart;
-        public ICollection<UndirectOperation> ChangeableParts
+        public ICollection<UndirectOperation> UndirectOperation
         {
 
             get { return _changeablespart ?? (_changeablespart = new List<UndirectOperation>()); }

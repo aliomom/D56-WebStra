@@ -19,7 +19,7 @@ namespace Domain.Entity.ProjectEntity.Clinic.Equipment.DiagnosticEquipment.Part
         public string MaintenancePhone { get; set; }
         public byte[] UserGuide { get; set; }
         public string Note { get; set; }
-        public int DepreciationPeriod { get; set; }
+        public int DepreciationPeriodPerMounth { get; set; }
         public int DepreciationOnOperatingTimes { get; set; }//onec
         private ICollection<DirectOperatingPart> _directOperatingPart;
         public ICollection<DirectOperatingPart> DirectOperatingPart
