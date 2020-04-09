@@ -52,8 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Entity\Configuration\Class1.cs" />
     <Compile Include="Entity\Configuration\ClinicConfiguration.cs" />
+    <Compile Include="Entity\Configuration\DirectOperatingPartConfiguration.cs" />
     <Compile Include="Entity\Configuration\HolydayConfiguration.cs" />
     <Compile Include="Entity\Configuration\wdqdqwd.cs" />
     <Compile Include="Entity\OwinEntity\AspNetRole.cs" />
